@@ -81,6 +81,6 @@ Repeatable Read隔离级别下，id列上有一个非唯一索引，对应SQL：
 
 　　**组合八，Repeatable Read隔离级别下的最后一种情况，id列上没有索引。此时SQL：delete from t1 where id = 10; 没有其他的路径可以选择，只能进行全表扫描。最终的加锁情况，如下图所示：**
 
-![1534399792053](C:\Users\BG235145\AppData\Local\Temp\1534399792053.png)
+![1534399792053](https://github.com/rqrtqqpqi5/back-end-hard-way/blob/master/resource/gap2.png?raw=true)
 
  在Repeatable Read隔离级别下，如果进行全表扫描的当前读，那么会锁上表中的所有记录，同时会锁上聚簇索引内的所有GAP，杜绝所有的并发 更新/删除/插入 操作。当然，也可以通过触发semi-consistent read，来缓解加锁开销与并发影响，但是semi-consistent read本身也会带来其他问题，不建议使用。
