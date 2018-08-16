@@ -69,4 +69,4 @@
 
 ​        组合七，Repeatable Read隔离级别，id上有一个非唯一索引，执行delete from t1 where id = 10; 假设选择id列上的索引进行条件过滤，最后的加锁行为，是怎么样的呢？同样看下面这幅图：
 
-![gapLock](..\resource\gapLock.png)
+![gapLock](https://github.com/rqrtqqpqi5/back-end-hard-way/blob/master/resource/gapLock.png?raw=true)
